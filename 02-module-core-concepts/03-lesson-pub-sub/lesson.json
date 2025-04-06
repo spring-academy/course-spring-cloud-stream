@@ -1,0 +1,11 @@
+{
+  "id": "spring-cloud-stream-core-concepts-pub-sub",
+  "slug": "pub-sub",
+  "title": "The Pub/Sub Model",
+  "status": "live",
+  "type": "article",
+  "duration": 1200,
+  "settings": {
+    "manualCompletion": true
+  }
+}

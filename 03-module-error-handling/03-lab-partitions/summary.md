@@ -1,0 +1,1 @@
+Start building a real Spring Cloud Stream system with a **Source** application that generates data and sends it to a middleware topic for **someone** to process later. I wonder who that _someone_ will be?

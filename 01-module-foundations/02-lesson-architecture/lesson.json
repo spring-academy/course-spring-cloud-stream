@@ -1,0 +1,11 @@
+{
+  "id": "spring-cloud-stream-foundations-arch",
+  "slug": "architecture",
+  "title": "A Bit of Architecture",
+  "status": "live",
+  "type": "article",
+  "duration": 900,
+  "settings": {
+    "manualCompletion": true
+  }
+}

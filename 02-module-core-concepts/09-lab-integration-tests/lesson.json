@@ -1,0 +1,12 @@
+{
+  "id": "spring-cloud-stream-core-concepts-integration-tests",
+  "slug": "spring-cloud-stream-integration-tests",
+  "title": "Lab: End-to-End Integration Testing",
+  "status": "live",
+  "type": "lab",
+  "duration": 1800,
+  "settings": {
+    "educates": "spr-cloud-stream-e2e-tests",
+    "manualCompletion": true
+  }
+}

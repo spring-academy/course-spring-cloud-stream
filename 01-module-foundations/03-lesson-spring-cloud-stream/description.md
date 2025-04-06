@@ -1,0 +1,1 @@
+Get introduced to the core features and capabilities of Spring Cloud Stream for building message-driven microservices.

@@ -1,0 +1,1 @@
+Implement on-demand event processing using the StreamBridge feature in Spring Cloud Stream.

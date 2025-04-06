@@ -1,0 +1,1 @@
+Now that you've had an overview of event-driven systems, and a very high-level overview of Spring Cloud Stream, we will work through short hands-on in which we will bootstrap a small Spring Cloud Stream application.

@@ -1,0 +1,11 @@
+{
+  "id": "spring-cloud-stream-error-handling-partitions",
+  "slug": "partitions-and-consumer-groups",
+  "title": "Lab: Partitions and Consumer Groups",
+  "status": "unlisted",
+  "type": "lab",
+  "settings": {
+    "educates": "spr-cloud-stream-partitions",
+    "manualCompletion": true
+  }
+}

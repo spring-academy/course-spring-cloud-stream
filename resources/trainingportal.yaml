@@ -1,0 +1,46 @@
+apiVersion: training.educates.dev/v1beta1
+kind: TrainingPortal
+metadata:
+  name: spr-cloud-stream
+spec:
+  portal:
+    registration:
+      type: anonymous
+    updates:
+      workshop: true
+    sessions:
+      maximum: 10
+  workshops:
+    # The following are the items that should be added to the trainingportal in the deployment environment.
+    - name: spr-cloud-stream-lab-1-workshop
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-cloud-stream-create-source
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-cloud-stream-middleware
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-cloud-stream-stream-bridge
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-cloud-stream-processor
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-cloud-stream-sink
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-cloud-stream-e2e-tests
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-cloud-stream-partitions
+      expires: 60m
+      orphaned: 5m
+      reserved: 0

@@ -1,0 +1,1 @@
+Understand the Binder SPI and its role in abstracting the messaging middleware in Spring Cloud Stream.

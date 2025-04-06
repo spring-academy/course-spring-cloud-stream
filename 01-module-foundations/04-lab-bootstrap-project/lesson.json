@@ -1,0 +1,12 @@
+{
+  "id": "spring-cloud-stream-foundations-lab-1",
+  "slug": "bootstrap-project",
+  "title": "Lab: Bootstrap the Project",
+  "status": "live",
+  "type": "lab",
+  "duration": 600,
+  "settings": {
+    "educates": "spr-cloud-stream-lab-1-workshop",
+    "manualCompletion": true
+  }
+}

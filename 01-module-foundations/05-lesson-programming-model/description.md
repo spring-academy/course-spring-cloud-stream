@@ -1,0 +1,1 @@
+Learn about the programming model used in Spring Cloud Stream and how it simplifies the development of event-driven applications.

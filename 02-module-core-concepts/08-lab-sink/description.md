@@ -1,0 +1,1 @@
+Create a Sink application to persist event data in your Spring Cloud Stream system.

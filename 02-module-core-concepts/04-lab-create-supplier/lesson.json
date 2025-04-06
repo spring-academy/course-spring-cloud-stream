@@ -1,0 +1,12 @@
+{
+  "id": "spring-cloud-stream-core-concepts-create-supplier",
+  "slug": "create-source-application",
+  "title": "Lab: Create the Source Application",
+  "status": "live",
+  "type": "lab",
+  "duration": 1800,
+  "settings": {
+    "educates": "spr-cloud-stream-create-source",
+    "manualCompletion": true
+  }
+}

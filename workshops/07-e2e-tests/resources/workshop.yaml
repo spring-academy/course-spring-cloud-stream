@@ -1,0 +1,80 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: spr-cloud-stream-e2e-tests
+spec:
+  title: "Lab: E2E Integration Tests"
+  description: "E2E Integration Tests"
+  workshop:
+    image: jdk17-environment:*
+    packages:
+      - name: spring-academy-lab
+        files:
+          - image:
+              url: ghcr.io/spring-academy/spring-academy-extension-packages/spring-academy-lab
+              tagSelection:
+                semver:
+                  constraints: ">=1.0.0 <2.0.0"
+    files:
+      - image: # Note: format is {repository-name}-files
+          url: $(image_repository)/course-spring-cloud-stream-files:$(workshop_version)
+        includePaths:
+          - /workshops/07-e2e-tests/workshop/**
+        newRootPath: workshops/07-e2e-tests
+      - path: .local/share/code-server
+        image:
+          url: ghcr.io/spring-academy/vscode-java-tools-$(platform_arch)-files:0.25.14
+      - path: exercises
+        git:
+          url: https://github.com/spring-academy/course-spring-cloud-stream-code
+          ref: lab-format
+        newRootPath: .
+  request:
+    parameters:
+    - name: USER_DOMAIN
+      value: "unknown.domain"
+    - name: USER_EMAIL
+      value: "somebody@unknown.domain"
+  session:
+    env:
+      - name: LESSON_LABEL
+        value: e2e-tests-start
+    namespaces:
+      budget: x-large
+    resources:
+      memory: 8Gi
+    applications:
+      terminal:
+        enabled: true
+      editor:
+        enabled: true
+      docker:
+        enabled: true
+        storage: 1500Mi
+        socket:
+          # you must have this to enable docker ps, etc.
+          enabled: true
+        compose:
+          services:
+            kafka:
+              image: apache/kafka:latest
+              container_name: kafka
+              hostname: kafka
+              ports:
+                - "9092:9092"
+              environment:
+                KAFKA_NODE_ID: 1
+                KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,PLAINTEXT_DOCKER:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT"
+                KAFKA_LISTENERS: "PLAINTEXT_DOCKER://kafka:29092,CONTROLLER://kafka:29093,PLAINTEXT_HOST://0.0.0.0:9092"
+                KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT_DOCKER://kafka:29092,PLAINTEXT_HOST://localhost:9092"
+                KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+                KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+                KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+                KAFKA_PROCESS_ROLES: "broker,controller"
+                KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:29093"
+                KAFKA_INTER_BROKER_LISTENER_NAME: "PLAINTEXT_DOCKER"
+                KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+                KAFKA_LOG_DIRS: "/tmp/kraft-combined-logs"
+    dashboards:
+      - name: Editor
+      - name: Terminal

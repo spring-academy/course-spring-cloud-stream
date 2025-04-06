@@ -1,0 +1,1 @@
+Learn the importance of end-to-end testing and implement E2E tests using both embedded and real Kafka middleware.

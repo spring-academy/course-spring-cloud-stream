@@ -1,0 +1,12 @@
+{
+  "id": "spring-cloud-stream-core-concepts-sink",
+  "slug": "spring-cloud-stream-sink",
+  "title": "Lab: Saving Data with a Sink",
+  "status": "live",
+  "type": "lab",
+  "duration": 1800,
+  "settings": {
+    "educates": "spr-cloud-stream-sink",
+    "manualCompletion": true
+  }
+}

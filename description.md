@@ -1,0 +1,1 @@
+Learn to create event-driven applications that handle real-time data efficiently using Spring Cloud Stream. You'll learn about the overarching concepts at the foundation of all event-driven systems, and how Spring Cloud Stream implements these concepts. Along the way, you'll build a fully functional event-driven system with Spring and Spring Cloud Stream.

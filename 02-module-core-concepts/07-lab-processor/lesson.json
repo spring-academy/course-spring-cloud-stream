@@ -1,0 +1,12 @@
+{
+  "id": "spring-cloud-stream-core-concepts-processor",
+  "slug": "spring-cloud-stream-processor",
+  "title": "Lab: Enriching Data with a Processor",
+  "status": "live",
+  "type": "lab",
+  "duration": 1800,
+  "settings": {
+    "educates": "spr-cloud-stream-processor",
+    "manualCompletion": true
+  }
+}

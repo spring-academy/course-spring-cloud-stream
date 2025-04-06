@@ -1,0 +1,11 @@
+{
+  "id": "spring-cloud-stream-foundations-overview",
+  "slug": "spring-cloud-stream-overview",
+  "title": "Overview: Spring Cloud Stream",
+  "status": "live",
+  "type": "article",
+  "duration": 900,
+  "settings": {
+    "manualCompletion": true
+  }
+}

@@ -1,0 +1,1 @@
+Gain an understanding of the architectural principles behind event-driven systems and their practical applications.

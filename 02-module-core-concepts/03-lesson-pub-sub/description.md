@@ -1,0 +1,1 @@
+Learn about the publish/subscribe interaction model and its implementation in Spring Cloud Stream.

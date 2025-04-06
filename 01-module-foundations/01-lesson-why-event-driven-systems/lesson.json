@@ -1,0 +1,11 @@
+{
+  "id": "spring-cloud-stream-foundations-why",
+  "slug": "why-even-driven-systems",
+  "title": "Why Event Driven Systems?",
+  "status": "live",
+  "type": "article",
+  "duration": 900,
+  "settings": {
+    "manualCompletion": true
+  }
+}

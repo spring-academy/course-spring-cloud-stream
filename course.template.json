@@ -1,0 +1,19 @@
+{
+  "id": "spring-cloud-stream",
+  "slug": "spring-cloud-stream",
+  "title": "Building an Event Driven System with Spring Cloud Stream",
+  "status": "live",
+  "order": 500,
+  "level": "intermediate",
+  "topics": ["java", "events", "spring-cloud-stream"],
+  "entitlements": ["auth"],
+  "instructors": ["spring-soby-chacko", "spring-joe-moore"],
+  "settings": {
+    "thumbnail": "https://raw.githubusercontent.com/spring-academy/spring-academy-assets/main/courses/course-spring-cloud-stream/course-thumbnail.svg",
+    "debug.version": "${GITHUB_REF_NAME}",
+    "debug.commit": "${GITHUB_SHA}",
+    "debug.updated": "${DEBUG_DATE}",
+    "debug.who": "${GITHUB_ACTOR}",
+    "debug.github-workflow": "${GITHUB_WORKFLOW}"
+  }
+}

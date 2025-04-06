@@ -1,0 +1,1 @@
+Learn how to switch between different messaging middlewares in your Spring Cloud Stream application.

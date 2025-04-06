@@ -1,0 +1,3 @@
+The programming model in Spring Cloud Stream is very simple and based on the java8 functional model. Moreover, the actual functional model is enabled in Spring Cloud Stream via the Spring Cloud Function framework.
+
+There are more areas to explore in Spring Cloud Stream, but we touched on the framework's core elements. Now, let us move on to creating some sample applications and see Spring Cloud Stream in action. Along that journey, we will see the major themes discussed in this module. In addition, we will dive into some advanced concepts that we haven't introduced yet, such as message conversion and error handling.

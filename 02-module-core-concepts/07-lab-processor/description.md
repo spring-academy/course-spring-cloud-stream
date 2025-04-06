@@ -1,0 +1,1 @@
+Create a Processor application to enrich event data in your Spring Cloud Stream system.

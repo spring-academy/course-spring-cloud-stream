@@ -1,0 +1,1 @@
+We're sourcing data and sending in to our middleware. Now let's _process_ and enrich that data using a Spring Cloud Stream processor.

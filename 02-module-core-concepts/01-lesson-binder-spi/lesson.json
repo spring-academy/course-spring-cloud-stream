@@ -1,0 +1,11 @@
+{
+  "id": "spring-cloud-stream-core-concepts-binder-spi",
+  "slug": "binder-spi",
+  "title": "Binder Service Provided Interface (SPI)",
+  "status": "live",
+  "type": "article",
+  "duration": 1200,
+  "settings": {
+    "manualCompletion": true
+  }
+}

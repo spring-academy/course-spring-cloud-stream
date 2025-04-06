@@ -1,0 +1,11 @@
+{
+  "id": "spring-cloud-stream-core-concepts-binding-api",
+  "slug": "binding-api",
+  "title": "Binding API",
+  "status": "live",
+  "type": "article",
+  "duration": 1200,
+  "settings": {
+    "manualCompletion": true
+  }
+}
