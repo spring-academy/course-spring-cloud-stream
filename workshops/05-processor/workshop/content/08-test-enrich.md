@@ -41,12 +41,12 @@ Let's make sure our `Transaction` is actually enriched as an `EnrichedTransactio
    description: "Update the test"
    ```
 
-   First, create a `@MockBean` for `EnrichmentService` for the test.
+   First, create a `@MockitoBean` for `EnrichmentService` for the test.
 
    ```java
    public class CashCardTransactionEnricherTests {
 
-     @MockBean
+     @MockitoBean
      private EnrichmentService enrichmentService;
      ...
    ```
@@ -55,7 +55,7 @@ Let's make sure our `Transaction` is actually enriched as an `EnrichedTransactio
 
    ```java
    import example.cashcard.service.EnrichmentService;
-   import org.springframework.boot.test.mock.mockito.MockBean;
+   import org.springframework.test.context.bean.override.mockito.MockitoBean;
    ```
 
    Then, update the test to create an `EnrichedTransaction` to be returned by our mocked'ed service:
@@ -127,7 +127,7 @@ Let's make sure our `Transaction` is actually enriched as an `EnrichedTransactio
    import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
    import org.springframework.boot.test.context.SpringBootTest;
-   import org.springframework.boot.test.mock.mockito.MockBean;
+   import org.springframework.test.context.bean.override.mockito.MockitoBean;
    import org.springframework.cloud.stream.binder.test.InputDestination;
    import org.springframework.cloud.stream.binder.test.OutputDestination;
    import org.springframework.cloud.stream.binder.test.TestChannelBinderConfiguration;
@@ -148,7 +148,7 @@ Let's make sure our `Transaction` is actually enriched as an `EnrichedTransactio
    @Import(TestChannelBinderConfiguration.class)
    public class CashCardTransactionEnricherTests {
 
-       @MockBean
+       @MockitoBean
        private EnrichmentService enrichmentService;
 
        @Test

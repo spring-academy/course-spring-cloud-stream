@@ -126,11 +126,14 @@ We'll call out the differences.
       // Create a transaction to POST
        Transaction transaction = new Transaction(1122334455L, new CashCard(6677889900L, "kumar2", 820.0));
 
-      // POST the transaction to our SpringBridge REST API
-       this.restTemplate.postForEntity("http://localhost:" + port + "/publish/txn", transaction, Transaction.class);
+      // POST the transaction to our SpringBridge REST API, retrying until the
+      // consumer's initial partition assignment completes and it is picked up
+       Awaitility.await().atMost(java.time.Duration.ofSeconds(30)).until(() -> {
+         this.restTemplate.postForEntity("http://localhost:" + port + "/publish/txn", transaction, Transaction.class);
+         return Files.exists(path);
+       });
 
-       // Wait for the sink file to appear and fetch the first line
-       Awaitility.await().until(() -> Files.exists(path));
+       // Fetch the first line
        List<String> lines = Files.readAllLines(path);
        String csvLine = lines.get(0);
 
@@ -171,7 +174,8 @@ We'll call out the differences.
    import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
    import org.springframework.boot.test.context.SpringBootTest;
-   import org.springframework.boot.test.web.client.TestRestTemplate;
+   import org.springframework.boot.resttestclient.TestRestTemplate;
+   import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;
    import org.springframework.boot.test.web.server.LocalServerPort;
    import org.springframework.context.annotation.Import;
    import org.springframework.kafka.test.context.EmbeddedKafka;
@@ -193,6 +197,7 @@ We'll call out the differences.
      "spring.cloud.stream.bindings.enrichTransaction-out-0.destination=enriched-transactions",
      "spring.cloud.stream.bindings.cashCardTransactionFileSink-in-0.destination=enriched-transactions"
    }, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+   @AutoConfigureTestRestTemplate
    public class CashCardTransactionOnDemandE2ETests {
 
      @LocalServerPort
@@ -212,11 +217,14 @@ We'll call out the differences.
        // Create a transaction to POST
        Transaction transaction = new Transaction(1122334455L, new CashCard(6677889900L, "kumar2", 820.0));
 
-       // POST the transaction to our SpringBridge REST API
-       this.restTemplate.postForEntity("http://localhost:" + port + "/publish/txn", transaction, Transaction.class);
+       // POST the transaction to our SpringBridge REST API, retrying until the
+       // consumer's initial partition assignment completes and it is picked up
+       Awaitility.await().atMost(java.time.Duration.ofSeconds(30)).until(() -> {
+         this.restTemplate.postForEntity("http://localhost:" + port + "/publish/txn", transaction, Transaction.class);
+         return Files.exists(path);
+       });
 
-       // Wait for the sink file to appear and fetch the first line
-       Awaitility.await().until(() -> Files.exists(path));
+       // Fetch the first line
        List<String> lines = Files.readAllLines(path);
        String csvLine = lines.get(0);
 

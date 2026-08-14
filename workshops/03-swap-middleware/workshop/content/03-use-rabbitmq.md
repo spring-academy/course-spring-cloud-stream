@@ -17,7 +17,13 @@ Now that we have proven that Kafka is no longer running, let's make the incredib
 
    ```groovy
    implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+   implementation 'org.springframework.boot:spring-boot-starter-amqp'
    ```
+
+   Note that `spring-boot-starter-amqp` is required alongside the binder -
+   just like `spring-boot-starter-kafka` for the Kafka binder, Spring Boot's
+   RabbitMQ auto-configuration now lives in its own starter module rather
+   than riding along automatically.
 
 1. Remove the Kafka dependencies.
 
@@ -26,12 +32,15 @@ Now that we have proven that Kafka is no longer running, let's make the incredib
    ```groovy
    dependencies {
    	implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+   	implementation 'org.springframework.boot:spring-boot-starter-amqp'
    	implementation 'org.springframework.cloud:spring-cloud-stream'
+   	implementation 'com.fasterxml.jackson.core:jackson-databind'
    	// implementation 'org.springframework.cloud:spring-cloud-stream-binder-kafka'
-   	// implementation 'org.springframework.kafka:spring-kafka'
+   	// implementation 'org.springframework.boot:spring-boot-starter-kafka'
    	testImplementation 'org.springframework.boot:spring-boot-starter-test'
    	testImplementation 'org.springframework.cloud:spring-cloud-stream-test-binder'
-   	// testImplementation 'org.springframework.kafka:spring-kafka-test'
+   	// testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
+   	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
    }
    ```
 

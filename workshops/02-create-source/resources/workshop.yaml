@@ -27,7 +27,7 @@ spec:
       - path: exercises
         git:
           url: https://github.com/spring-academy/course-spring-cloud-stream-code
-          ref: lab-format
+          ref: spring-boot-4
         newRootPath: .
   request:
     parameters:

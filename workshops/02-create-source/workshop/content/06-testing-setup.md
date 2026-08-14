@@ -98,7 +98,7 @@ Let's create a new test!
 
 1. Inject a Mock `DataSourceService`.
 
-   The Spring framework test dependencies include support for replacing beans with versions we can carefully configure when we write our tests -- "mock" beans. Learn more about `MockBean` [here.](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/mock/mockito/MockBean.html)
+   The Spring framework test dependencies include support for replacing beans with versions we can carefully configure when we write our tests -- "mock" beans. Learn more about `MockitoBean` [here.](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/bean/override/mockito/MockitoBean.html)
 
    Let's replace the `DataSourceService` available in our test with a "mock" that we can configure later:
 
@@ -110,7 +110,7 @@ Let's create a new test!
    import org.junit.jupiter.api.Test;
    import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.boot.test.context.SpringBootTest;
-   import org.springframework.boot.test.mock.mockito.MockBean;
+   import org.springframework.test.context.bean.override.mockito.MockitoBean;
    import org.springframework.cloud.stream.binder.test.OutputDestination;
    import org.springframework.cloud.stream.binder.test.TestChannelBinderConfiguration;
    import org.springframework.context.annotation.Import;
@@ -122,7 +122,7 @@ Let's create a new test!
    class CashCardApplicationTests {
 
      // Autowire a mock bean for the DataSourceService
-     @MockBean
+     @MockitoBean
      private DataSourceService dataSourceService;
 
      @Test

@@ -21,7 +21,7 @@ Complete the following steps to use Spring Initializr to set up the Family Cash 
 
    - Project: **Gradle - Groovy**
    - Language: **Java**
-   - SpringBoot: Choose the latest **3.2.X** version
+   - SpringBoot: Choose the latest **4.1.X** version
 
 1. Enter the following values next to the corresponding Project Metadata fields:
 

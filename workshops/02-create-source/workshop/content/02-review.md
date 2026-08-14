@@ -27,18 +27,20 @@ description: "Look at the build.gradle dependencies"
 ```groovy
 dependencies {
   implementation 'org.springframework.cloud:spring-cloud-stream'
+  implementation 'com.fasterxml.jackson.core:jackson-databind'
   implementation 'org.springframework.cloud:spring-cloud-stream-binder-kafka'
-  implementation 'org.springframework.kafka:spring-kafka'
+  implementation 'org.springframework.boot:spring-boot-starter-kafka'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
   testImplementation 'org.springframework.cloud:spring-cloud-stream-test-binder'
-  testImplementation 'org.springframework.kafka:spring-kafka-test'
+  testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 ```
 
 Note the following Spring Cloud Stream dependencies in particular:
 
 - `org.springframework.cloud:spring-cloud-stream`: The core dependency for Spring Cloud Stream.
-- `org.springframework.cloud:spring-cloud-stream-binder-kafka`: The Kafka binder dependency spring-cloud-stream-binder-kafka, which uses the `spring-kafka` module.
+- `org.springframework.cloud:spring-cloud-stream-binder-kafka`: The Kafka binder dependency spring-cloud-stream-binder-kafka, which uses the `spring-boot-starter-kafka` module.
 - `org.springframework.cloud:spring-cloud-stream-test-binder`: The test binder that will enable testing of our Spring Cloud Stream applications.
 
 Now that we are done with our review, let's start building our **Source** application!

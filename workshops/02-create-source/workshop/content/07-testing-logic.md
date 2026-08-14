@@ -10,7 +10,7 @@ At this point we are ready to write the logic of our test so we can be confident
 
    Our `DataSourceService` would normally generate randomized data, which is extremely hard to use in tests -- you never know what data you're going to get!
 
-   Luckily, we have used Spring's `@MockBean` annotation to inject a _mock_ `DataSourceService` bean we can control.
+   Luckily, we have used Spring's `@MockitoBean` annotation to inject a _mock_ `DataSourceService` bean we can control.
 
    ```editor:select-matching-text
    file: ~/exercises/src/test/java/example/cashcard/stream/CashCardApplicationTests.java
@@ -172,7 +172,7 @@ At this point we are ready to write the logic of our test so we can be confident
    import org.junit.jupiter.api.Test;
    import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.boot.test.context.SpringBootTest;
-   import org.springframework.boot.test.mock.mockito.MockBean;
+   import org.springframework.test.context.bean.override.mockito.MockitoBean;
    import org.springframework.cloud.stream.binder.test.OutputDestination;
    import org.springframework.cloud.stream.binder.test.TestChannelBinderConfiguration;
    import org.springframework.context.annotation.Import;
@@ -188,7 +188,7 @@ At this point we are ready to write the logic of our test so we can be confident
    @Import(TestChannelBinderConfiguration.class)
    class CashCardApplicationTests {
 
-     @MockBean
+     @MockitoBean
      private DataSourceService dataSourceService;
 
      @Test

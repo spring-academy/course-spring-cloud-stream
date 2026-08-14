@@ -10,20 +10,20 @@ Let's review the changes so you are familiar with how the controller currently w
 
 1. Review the new dependency.
 
-   Since we have a REST controller, we need the `spring-boot-starter-web` dependency.
+   Since we have a REST controller, we need the `spring-boot-starter-webmvc` dependency.
 
    Take a look at `build.gradle` for this new dependency.
 
    ```editor:select-matching-text
    file: ~/exercises/build.gradle
-   text: "implementation 'org.springframework.boot:spring-boot-starter-web'"
+   text: "implementation 'org.springframework.boot:spring-boot-starter-webmvc'"
    description: "Review build.gradle dependencies"
    ```
 
    ```groovy
    dependencies {
      ...
-     implementation 'org.springframework.boot:spring-boot-starter-web'
+     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
      ...
    }
    ```
@@ -68,6 +68,7 @@ Let's review the changes so you are familiar with how the controller currently w
 
    ```java
    @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+   @AutoConfigureTestRestTemplate
    public class CashCardControllerTests {
     ...
      @Autowired

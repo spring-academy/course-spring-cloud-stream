@@ -36,7 +36,7 @@ Thus far in our labs, we have used the test binder provided by Spring Cloud Stre
 
 In order to test that our individual applications work gether as a true Spring Cloud Stream system, we needed to run a real Kafka broker for our integration tests.
 
-The [Spring for Apache Kafka](https://spring.io/projects/spring-kafka) project, which the Spring Cloud Stream Kafka binder is built upon, provides an embedded-kafka broker (`@EmbeddedKafka`) for integration testing Apache Kafka applications. It is available as part of the `spring-kafka-test` module.
+The [Spring for Apache Kafka](https://spring.io/projects/spring-kafka) project, which the Spring Cloud Stream Kafka binder is built upon, provides an embedded-kafka broker (`@EmbeddedKafka`) for integration testing Apache Kafka applications. It is available as part of the `spring-boot-starter-kafka-test` module.
 
 By including this module in our application's test-scope dependencies we can easily test our business logic against a real embedded Kafka cluster.
 
@@ -44,7 +44,7 @@ Take a look at our project's `build.gradle` to see how we define this dependency
 
 ```editor:select-matching-text
 file: ~/exercises/cashcard-transaction-e2e-tests/build.gradle
-text: "testImplementation 'org.springframework.kafka:spring-kafka-test'"
+text: "testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'"
 description: "Embedded Kafka support"
 ```
 

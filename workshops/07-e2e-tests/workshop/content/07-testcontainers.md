@@ -37,7 +37,8 @@ Let's create a version of our streaming test that user Testcontainers instead of
    dependencies {
      ...
      // Add the Testcontainers dependencies for Kafka
-     testImplementation 'org.testcontainers:kafka'
+     testImplementation 'org.testcontainers:testcontainers-kafka'
+     testImplementation 'org.testcontainers:testcontainers-junit-jupiter'
      testImplementation 'org.springframework.boot:spring-boot-testcontainers'
    }
    ```
@@ -84,6 +85,13 @@ Let's create a version of our streaming test that user Testcontainers instead of
 
    Next, update the configuration inner class to provide the Testcontainer `@ServiceConnection` bean for Kafka, which is based on the [Confluent Kafka image](https://hub.docker.com/r/confluentinc/cp-kafka) container:
 
+   {{< note >}}
+   Testcontainers' Kafka module gives the generic `KafkaContainer` and the
+   Confluent-specific `ConfluentKafkaContainer` their own dedicated classes, and
+   validates that the image you pass matches. Since we're using the
+   `confluentinc/cp-kafka` image, we need `ConfluentKafkaContainer` here.
+   {{< /note >}}
+
    ```java
    ...
     // Configure auto-configuration of Testcontainer Kafka
@@ -94,14 +102,14 @@ Let's create a version of our streaming test that user Testcontainers instead of
        // Configure the Testcontainer bean support for Kafka
        @Bean
        @ServiceConnection
-       KafkaContainer kafkaContainer() {
+       ConfluentKafkaContainer kafkaContainer() {
          // Sometimes our lab environment is slow. Be sure to wait long enough for
          // the container to download and start 😉.
          WaitAllStrategy fiveMinutes = new WaitAllStrategy(WaitAllStrategy.Mode.WITH_OUTER_TIMEOUT)
          .withStartupTimeout(Duration.ofMinutes(5));
 
          // Specify the Kafka container
-         return new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:latest"))
+         return new ConfluentKafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:latest"))
          .waitingFor(fiveMinutes);
        }
    }
@@ -114,7 +122,7 @@ Let's create a version of our streaming test that user Testcontainers instead of
    import org.springframework.context.annotation.Bean;
    import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
    import org.testcontainers.containers.wait.strategy.WaitAllStrategy;
-   import org.testcontainers.containers.KafkaContainer;
+   import org.testcontainers.kafka.ConfluentKafkaContainer;
    import org.testcontainers.utility.DockerImageName;
    ```
 
@@ -160,7 +168,7 @@ Let's create a version of our streaming test that user Testcontainers instead of
    import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
    import org.springframework.context.annotation.Bean;
    import org.springframework.context.annotation.Import;
-   import org.testcontainers.containers.KafkaContainer;
+   import org.testcontainers.kafka.ConfluentKafkaContainer;
    import org.testcontainers.containers.wait.strategy.WaitAllStrategy;
    import org.testcontainers.utility.DockerImageName;
 
@@ -207,14 +215,14 @@ Let's create a version of our streaming test that user Testcontainers instead of
        // Configure the Testcontainer bean support for Kafka
        @Bean
        @ServiceConnection
-       KafkaContainer kafkaContainer() {
+       ConfluentKafkaContainer kafkaContainer() {
          // Sometimes our lab environment is slow. Be sure to wait long enough for
          // the container to download and start 😉.
          WaitAllStrategy fiveMinutes = new WaitAllStrategy(WaitAllStrategy.Mode.WITH_OUTER_TIMEOUT)
              .withStartupTimeout(Duration.ofMinutes(5));
 
          // Specify the Kafka container
-         return new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:latest"))
+         return new ConfluentKafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:latest"))
              .waitingFor(fiveMinutes);
        }
      }
