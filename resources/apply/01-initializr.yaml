@@ -11,7 +11,6 @@ spec:
     files:
       - http:
           url: "$(ingress_protocol)://$(workshop_namespace)-files.$(ingress_domain)/$(workshop_name).tar.gz"
-        newRootPath: workshops/01-initializr
       - path: .local/share/code-server
         image:
           url: ghcr.io/spring-academy/vscode-java-tools-$(platform_arch)-files:0.25.14
@@ -22,6 +21,11 @@ spec:
     - name: USER_EMAIL
       value: "somebody@unknown.domain"
   session:
+    env:
+      - name: WEBSERVER
+        value: "$(ingress_protocol)://$(workshop_namespace)-files.$(ingress_domain)"
+      - name: LESSON_LABEL
+        value: test-first-start
     namespaces:
       budget: medium
     resources:

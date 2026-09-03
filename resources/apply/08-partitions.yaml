@@ -21,6 +21,8 @@ spec:
       value: "somebody@unknown.domain"
   session:
     env:
+      - name: WEBSERVER
+        value: "$(ingress_protocol)://$(workshop_namespace)-files.$(ingress_domain)"
       - name: LESSON_LABEL
         value: e2e-tests-end
     namespaces:
