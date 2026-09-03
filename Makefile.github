@@ -1,7 +1,7 @@
 DIR_LAB               = lab
 NAME                  = course-spring-cloud-stream
 IMAGE_SOURCE          = https://github.com/spring-academy/course-spring-cloud-stream
-CONTAINER_REGISTRY    = 
+CONTAINER_REGISTRY    = ghcr.io/spring-academy/
 CONTAINER_REPOSITORY  = course-spring-cloud-stream
 CODE_REPO             = https://github.com/spring-academy/course-spring-cloud-stream-code
 CODE_REPO_BRANCH      = spring-boot-4
