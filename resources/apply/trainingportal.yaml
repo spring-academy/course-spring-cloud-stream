@@ -1,0 +1,41 @@
+apiVersion: training.educates.dev/v1beta1
+kind: TrainingPortal
+metadata:
+  name: spr-cloud-stream
+spec:
+  portal:
+    sessions:
+      maximum: 180
+    theme:
+      frame:
+        ancestors:
+        - https://spring.academy
+        - https://*.spring.academy
+        - https://*.vmware.com
+        - https://*.broadcom.com
+        - https://spring-staging.academy
+        - https://spring-academy.broadcom.com
+        - https://spring-academy-verify.broadcom.com
+        - https://spring-academy-qa.broadcom.net
+        - https://spring-academy-dev.broadcom.net
+        - http://localhost:8080
+    updates:
+      workshop: true
+    workshop:
+      defaults:
+        expires: 60m
+        orphaned: 5m
+        reserved: ${TRAINING_PORTAL_RESERVED}
+  analytics:
+    google:
+      trackingId: "${ANALYTICS_GOOGLE_ID}"
+    clarity:
+      trackingId: "${ANALYTICS_CLARITY_ID}"
+  workshops:
+  - name: spr-cloud-stream-lab-1-workshop
+  - name: spr-cloud-stream-create-source
+  - name: spr-cloud-stream-middleware
+  - name: spr-cloud-stream-stream-bridge
+  - name: spr-cloud-stream-processor
+  - name: spr-cloud-stream-sink
+  - name: spr-cloud-stream-e2e-tests
