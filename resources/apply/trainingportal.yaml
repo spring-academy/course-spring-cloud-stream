@@ -1,7 +1,7 @@
 apiVersion: training.educates.dev/v1beta1
 kind: TrainingPortal
 metadata:
-  name: spr-cloud-stream
+  name: spring-course-cloud-stream
 spec:
   portal:
     sessions:
