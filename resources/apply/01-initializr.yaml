@@ -85,6 +85,19 @@ spec:
               port: 8080
               targetPort: 8080
               protocol: TCP
+      - apiVersion: v1
+        kind: Service
+        metadata:
+          name: $(workshop_namespace)-files
+          namespace: $(workshop_namespace)
+        spec:
+          type: ClusterIP
+          ports:
+          - port: 80
+            protocol: TCP
+            targetPort: 8080
+          selector:
+            deployment: files
       - apiVersion: networking.k8s.io/v1
         kind: Ingress
         metadata:
