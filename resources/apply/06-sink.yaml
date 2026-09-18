@@ -76,6 +76,7 @@ spec:
 
   environment:
     assets:
+      memory: 0Mi
       ingress:
         enabled: true
       files:
